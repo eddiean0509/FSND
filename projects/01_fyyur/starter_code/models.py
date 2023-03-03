@@ -1,4 +1,16 @@
-from app import db
+from sqlalchemy import Column, String, Integer, Boolean, DateTime, ARRAY, ForeignKey
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+db = SQLAlchemy()
+
+
+# TODO: connect to a local postgresql database
+def setup_db(app):
+    app.config.from_object('config')
+    db.app = app
+    db.init_app(app)
+    migrate = Migrate(app, db)
+    return db
 
 class Venue(db.Model):
     __tablename__ = 'Venue'
