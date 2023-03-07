@@ -116,7 +116,7 @@ def create_venue_submission():
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
 
-  form = VenueForm()
+  form = VenueForm(request.form)
 
   if form.validate_on_submit():
       venue = Venue()
@@ -267,7 +267,7 @@ def create_artist_submission():
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
 
-  form = ArtistForm()
+  form = ArtistForm(request.form)
 
   if form.validate_on_submit():
       artist = Artist()
@@ -313,7 +313,7 @@ def create_show_submission():
   # called to create new shows in the db, upon submitting new show listing form
   # TODO: insert form data as a new Show record in the db, instead
 
-  form = ShowForm()
+  form = ShowForm(request.form)
 
   if form.validate_on_submit():
       show = Show()
